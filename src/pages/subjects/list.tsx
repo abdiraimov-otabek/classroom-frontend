@@ -3,7 +3,7 @@ import { Search } from "lucide-react";
 import { useTable } from "@refinedev/react-table";
 import { ColumnDef } from "@tanstack/react-table";
 
-import { DEPARTMENT_OPTIONS } from "@/contstants";
+import { DEPARTMENT_OPTIONS } from "../..//contstants";
 import { ListView } from "../../components/refine-ui/views/list-view.tsx";
 import { Breadcrumb } from "../../components/refine-ui/layout/breadcrumb.tsx";
 import { Input } from "../../components/ui/input.tsx";
@@ -18,6 +18,7 @@ import { CreateButton } from "../../components/refine-ui/buttons/create.tsx";
 import { DataTable } from "../../components/refine-ui/data-table/data-table.tsx";
 import { ShowButton } from "../../components/refine-ui/buttons/show.tsx";
 import { Badge } from "../../components/ui/badge.tsx";
+import { Subject } from "../../types/index.ts";
 
 const SubjectListPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -47,7 +48,7 @@ const SubjectListPage = () => {
       },
       {
         id: "department",
-        accessorKey: "department",
+        accessorKey: "department.name",
         size: 150,
         header: () => <p className="column-title">Department</p>,
         cell: ({ getValue }) => (
